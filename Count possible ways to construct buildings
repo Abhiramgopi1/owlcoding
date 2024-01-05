@@ -1,0 +1,14 @@
+int TotalWays(int n)
+	{
+	    // Code here
+	    n++;
+	    long long s=0;
+	    long long a=0, b=1;
+	    while(n--){
+	        s=a+b;
+	        a=b%1000000007;
+	        b=s%1000000007;
+	    }
+	    s=(s*s)%(int)1000000007;
+	    return s;
+	}
