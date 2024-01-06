@@ -1,42 +1,23 @@
-#include<bits/stdc++.h>
-using namespace std;
-int main()
-{
-	test();
-	int n , k;
+class Solution {
+public:
+    int missingInteger(vector<int>& nums) {
+        int n=nums.size();
+        int sum = nums[0];
+        map<int,int>mp;
+        for(auto i: nums) mp[i]++;
+        for(int i=1;i<n;i++){
+            if(nums[i-1]+1==nums[i]) sum+=nums[i];
+            else break;
+        }
+         while(true){
+             if(mp[sum]<=0) return sum;
+             else{
+                 sum=sum+1;
+             }
+         }
+        
 
-	cin>>n;
-	vector<int>v(n,0);
-	for(int i=0;i<n;i++)
-	{
-		cin>>v[i];
-	}
-	cin>>k;
-	
-	int c = v[0];
-	for(i = 1;i<n;i++)
-	{
-		if(v[i-1]+1 == v[i])
-		{
-			c+=v[i];
-		}
-		else break;
-	}
-
-	int j = i;
-	while(1)
-	{
-		if(j == n) {
-			// cout<<c;
-			if(c == v[0]) cout<<(c+1);
-			else cout<<c;
-			break;
-		}
-		if(c == v[j])
-		{
-			j = i;
-			c++;
-		}
-		j++;
-	}
-}
+        
+        
+    }
+};
