@@ -1,0 +1,10 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,a,b;
+    cin>>n>>a>>b;
+    int x=a^b;
+    int an=__builtin_popcount(x);
+    if(an%2==0) cout<<an/2;
+    else cout<<-1;
+}
